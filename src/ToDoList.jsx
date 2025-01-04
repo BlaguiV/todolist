@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 function ToDoList() {
   const [tasks, setTasks] = useState(["eat breakfast", "take a shower"]);
   const [newTask, setNewTask] = useState("");
@@ -7,9 +8,17 @@ function ToDoList() {
     setNewTask(event.target.value);
   }
 
-  function addTask() {}
+  function addTask() {
+    if (newTask.trim() !== "") {
+      setTasks((t) => [...t, newTask]);
+      setNewTask("");
+    }
+  }
 
-  function deleteTask(index) {}
+  function deleteTask(index) {
+    const updateTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updateTasks);
+  }
 
   return (
     <>
@@ -29,8 +38,11 @@ function ToDoList() {
         <ol>
           {tasks.map((element, index) => (
             <li key={index}>
-              <span className="text">{tasks}</span>
-              <button className="delete-button" onClick={deleteTask(index)}>
+              <span className="text">{element}</span>
+              <button
+                className="delete-button"
+                onClick={() => deleteTask(index)}
+              >
                 Delete
               </button>
             </li>
