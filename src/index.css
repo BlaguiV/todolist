@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: hsl(0, 0%, 10%);
+  background-color: rgb(33, 33, 33);
 }
 
 h1 {
@@ -25,22 +25,22 @@ button {
 }
 
 .add-button {
-  background-color: hsl(125, 100%, 50%);
+  background-color: rgb(0, 255, 21);
 }
 
 .add-button:hover {
-  background-color: hsl(125, 100%, 50%);
+  background-color: rgb(0, 255, 21);
 }
 
 .delete-button {
-  background-color: hsl(0, 100%, 50%);
+  background-color: rgb(255, 0, 0);
   padding: 8px 12px;
   font-size: 24px;
   margin-left: 10px;
 }
 
 .delete-button:hover {
-  background-color: hsl(0, 100%, 50%);
+  background-color: rgb(255, 0, 0);
 }
 
 input[type="text"] {
@@ -72,4 +72,45 @@ li {
 
 .text {
   flex: 1;
+}
+
+.edit-button {
+  background-color: rgb(72, 72, 0);
+  padding: 8px 12px;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.save-button {
+  background-color: rgb(59, 0, 62);
+  padding: 10px 14px;
+  font-size: 32px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
