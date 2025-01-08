@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 function ToDoList() {
-  const [tasks, setTasks] = useState(["eat breakfast", "take a shower"]);
+  const [tasks, setTasks] = useState(["eat breakfast"]);
   const [newTask, setNewTask] = useState("");
   const [editingIndex, setEditingIndex] = useState(null);
   const [editedTask, setEditedTask] = useState("");
   const [error, setError] = useState("");
+  const [isDone, setIsDone] = useState(false);
 
   function handleInputChange(event) {
     setNewTask(event.target.value);
@@ -59,6 +60,7 @@ function ToDoList() {
         <h1>ToDoList</h1>
         <div>
           <input
+            className="input-task"
             type="text"
             placeholder="Enter a task..."
             value={newTask}
@@ -84,6 +86,7 @@ function ToDoList() {
         <ol>
           {tasks.map((element, index) => (
             <li key={index}>
+              <input type="checkbox" value={isDone} className="taskStatus" />
               <span className="text">{element}</span>
               <button className="edit-button" onClick={() => editTask(index)}>
                 Edit
